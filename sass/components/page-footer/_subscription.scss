@@ -1,0 +1,58 @@
+.subscription {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media screen and (min-width: $desktop) {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+}
+
+.subscription__label {
+  display: block;
+  width: 100%;
+}
+
+.subscription__input {
+
+  width: 100%;
+  height: 50px;
+  margin-bottom: 20px;
+  padding: 15px 16px;
+
+  background-color: $footerBackgroundColor;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+
+  @media screen and (min-width: $tablet) {
+    width: 450px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 358px;
+    margin-right: 12px;
+    margin-bottom: 0;
+
+  }
+}
+
+.subscription__title {
+  @extend %whiteAccent;
+
+  @media screen and (max-width: 1199px) {
+    text-align: center;
+  }
+}
+
+.subscription__icon {
+  margin-left: 10px;
+  fill: $whiteTextColor;
+  transition: fill 250ms $cubic;
+
+  .button:hover & {
+    fill: $accentColor;
+  }
+}

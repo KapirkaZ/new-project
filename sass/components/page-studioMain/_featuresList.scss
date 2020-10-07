@@ -1,0 +1,58 @@
+.featuresList {
+  @extend %list;
+
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -15px;
+  }
+}
+
+.featuresList__item {
+  @media screen and (min-width: $tablet) {
+    flex-basis: calc((100% - 30px * 2) / 2);
+    margin: 15px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    flex-basis: calc((100% - 30px * 4) / 4);
+  }
+
+
+  &:not(:last-child) {
+    @media screen and (max-width: 767px) {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.featuresList__container {
+  @include centeredFlex();
+  margin-bottom: 30px;
+  height: 120px;
+  border-radius: 4px;
+
+  background-color: $secondaryBackgroundColor;
+}
+
+.featuresList__title {
+  margin-top: 0px;
+  margin-bottom: 10px;
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-transform: uppercase;
+
+  @media screen and (max-width: 767px) {
+    text-align: center;
+  }
+}
+
+.featuresList__text {
+  margin: 0;
+
+  font-size: 14px;
+  line-height: 1.71;
+  color: $secondaryTextColor;
+}

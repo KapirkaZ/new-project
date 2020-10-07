@@ -1,0 +1,253 @@
+.backDrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  transition: opacity 250ms $cubic;
+  overflow-y: scroll;
+
+  &--hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  @media screen and (max-width: 767px) {
+    padding-top: 94px;
+    padding-right: 15px;
+    padding-bottom: 94px;
+    padding-left: 15px;
+  }
+}
+
+.request {
+  transform: scale(1);
+  transition: transform 250ms $cubic;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: calc(100% - 30px);
+  min-height: 609px;
+  padding-top: 40px;
+  padding-right: 40px;
+  padding-bottom: 40px;
+  padding-left: 40px;
+
+  background-color: $primaryBackgroundColor;
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+
+  .backDrop.backDrop--hidden & {
+    transform: scale(1.1);
+
+    @media screen and (min-width: $tablet) {
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media screen and (min-width: $tablet) {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    width: 450px;
+    min-height: 609px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    top: 50%;
+    min-width: 528px;
+    min-height: 581px;
+  }
+}
+
+.request__title {
+  margin-bottom: 30px;
+
+  font-size: 20px;
+  line-height: 1.5;
+  text-align: center;
+
+  @media screen and (min-width: $desktop) {
+    line-height: 1.15;
+  }
+}
+
+.request__field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 28px;
+}
+
+.request__input {
+  margin: 0;
+  padding-top: 12px;
+  padding-right: 45px;
+  padding-bottom: 12px;
+  padding-left: 45px;
+
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+}
+
+.request__label {
+  position: absolute;
+  top: 50%;
+  left: 45px;
+  transform: translateY(-50%);
+  transition: transform 250ms $cubic, color 250ms $cubic, font-size 250ms $cubic, line-height 250ms $cubic;
+
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.01em;
+  color: $secondaryTextColor;
+
+  .request__field:focus-within > &,
+  .request__input:not(:placeholder-shown) + & {
+    transform: translateY(-40px) translateX(-25px);
+    font-size: 12px;
+    line-height: 1.17;
+  }
+
+  .request__field:focus-within > & {
+    color: $accentColor;
+  }
+}
+
+.request__icon {
+  position: absolute;
+  top: 50%;
+  left: 19px;
+  transform: translateY(-50%);
+  fill: $primaryTextColor;
+  transition: fill 250ms $cubic;
+
+  .request__field:focus-within > & {
+    fill: $accentColor;
+  }
+}
+
+.request__textarea {
+  width: 100%;
+  height: 120px;
+  padding-top: 12px;
+  padding-right: 16px;
+  padding-bottom: 12px;
+  padding-left: 16px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  resize: none;
+}
+
+.request__textareaField {
+  position: relative;
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.request__textareaLabel {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.01em;
+  color: $secondaryTextColor;
+  transition: transform 250ms $cubic, color 250ms $cubic, font-size 250ms $cubic, line-height 250ms $cubic;
+
+  .request__textareaField:focus-within > &,
+  .request__textarea:not(:placeholder-shown) + & {
+    transform: translateY(-30px) translateX(5px);
+    font-size: 12px;
+    line-height: 1.17;
+  }
+
+  .request__textareaField:focus-within > & {
+    color: $accentColor;
+  }
+}
+
+/* Оформление CHECKBOX */
+
+.request__checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.request__checkboxIcon {
+  display: inline-block;
+  width: 16px;
+  height: 15px;
+  margin-right: 8px;
+  border: 2px solid #212121;
+  border-radius: 2px;
+
+  .request__checkboxInput:checked + & {
+    border-color: $accentColor;
+    background-image: url(../images/icon-check.svg);
+    background-color: $accentColor;
+    background-size: contain;
+    background-origin: border-box;
+  }
+}
+
+.request__checkboxLabel {
+  margin-right: 5px;
+  font-size: 11px;
+  line-height: 1.17;
+  color: $secondaryTextColor;
+
+  @media screen and (min-width: $desktop) {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+}
+
+.request__checkboxLink {
+  color: $accentColor;
+  font-size: 11px;
+  line-height: 1.17;
+
+  @media screen and (min-width: $desktop) {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+}
+
+/* Оформления кнопки закрытия модального окна */
+
+.buttonClose {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateX(-8px) translateY(8px);
+  @include centeredFlex();
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  background: $primaryBackgroundColor;
+  fill: #000;
+  transition: border-color 250ms $cubic, fill 250ms $cubic;
+
+  &:hover,
+  &:focus {
+    border-color: $accentColor;
+    fill: $accentColor;
+  }
+}

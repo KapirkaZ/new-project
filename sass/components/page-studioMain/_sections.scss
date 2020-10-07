@@ -1,0 +1,35 @@
+.section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  &--grey {
+    background-color: $secondaryBackgroundColor;
+  }
+
+  @media screen and (max-width: 1199px) {
+    &--hidden {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding-top: 94px;
+    padding-bottom: 94px;
+  }
+}
+
+
+.section__title {
+  margin-top: 0;
+  margin-bottom: 30px;
+
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.18;
+  text-align: center;
+
+  @media screen and (min-width: $desktop) {
+    font-size: 36px;
+    line-height: 1.17;
+  }
+}

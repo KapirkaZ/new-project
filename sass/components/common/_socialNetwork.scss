@@ -1,0 +1,34 @@
+.socialNetwork {
+  @include centeredFlex(inline-flex);
+  @extend %list;
+
+}
+
+.socialNetwork__title {
+  @extend %whiteAccent;
+}
+
+.socialNetwork__item:not(:last-child) {
+  margin-right: 10px;
+}
+
+.socialNetwork__link {
+  @include centeredFlex(inline-flex);
+
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  fill: $iconAndBorderColor;
+  transition: background-color 250ms $cubic, fill 250ms $cubic;
+
+  &:hover,
+  &:focus {
+    background-color: $accentColor;
+    fill: $whiteTextColor;
+  }
+
+  &--changeColor {
+    fill: $whiteTextColor;
+    background: rgba(255, 255, 255, 0.1);
+  }
+}

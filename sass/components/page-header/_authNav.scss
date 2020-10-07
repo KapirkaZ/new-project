@@ -1,0 +1,63 @@
+.authNav {
+  @include centeredFlex;
+  flex-direction: column;
+  @extend %list;
+
+  @media screen and (min-width: $tablet) and (max-width: 1199px) {
+    align-items: flex-start;
+  }
+
+  @media screen and (min-width: $desktop) {
+    flex-direction: row;
+  }
+}
+
+.authNav__item {
+  &:not(:last-child) {
+    @media screen and (max-width: 767px) {
+      margin-bottom: 16px;
+    }
+
+    @media screen and (min-width: $tablet) and (max-width: 1199px) {
+      margin-bottom: 10px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      margin-right: 30px;
+    }
+  }
+
+  @media screen and (min-width: $desktop) {
+    display: inline-flex;
+    align-items: center;
+
+  }
+}
+
+.authNav__link {
+  display: inline-flex;
+  align-items: center;
+
+  color: $secondaryTextColor;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.02em;
+  transition: color 250ms $cubic;
+  @extend %link;
+
+  &:hover,
+  &:focus {
+    color: $accentColor;
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}
+
+.authNav__icon {
+  margin-right: 10px;
+  fill: currentColor;
+}

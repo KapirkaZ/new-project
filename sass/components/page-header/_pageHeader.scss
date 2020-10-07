@@ -1,0 +1,50 @@
+.pageHeader {
+  position: relative;
+}
+
+.pageHeader__row {
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 60px;
+
+}
+
+.pageHeader__menu {
+
+  @media screen and (max-width: 767px) {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+    background-color: $primaryBackgroundColor;
+
+    &.is-open {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-top: 1px solid #ECECEC;
+    }
+  }
+
+
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    align-items: center;
+    flex-basis: 100%;
+
+  }
+}
+
+.pageHeader--portfolioBorder {
+  border-bottom: 1px solid #ececec;
+}
